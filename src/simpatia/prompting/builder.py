@@ -11,8 +11,16 @@ LANGUAGE_NAMES = {"en-GB": "English", "es-ES": "Spanish (Peninsular)"}
 
 @cache
 def _env() -> Environment:
+    """Jinja environment for prompt templates.
+
+    autoescape is deliberately off: output is plain text sent to an LLM,
+    not HTML. Escaping would corrupt apostrophes and accented characters
+    in patient dialogue. The separate environment in api/ renders HTML
+    and MUST have autoescape enabled.
+    """
     return Environment(
         loader=FileSystemLoader(settings.content_dir / "prompts"),
+        autoescape=False,  # noqa: S701 - plain-text prompts, not HTML
         undefined=StrictUndefined,
         trim_blocks=True,
         lstrip_blocks=True,
