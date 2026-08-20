@@ -20,7 +20,7 @@ def _env() -> Environment:
     """
     return Environment(
         loader=FileSystemLoader(settings.content_dir / "prompts"),
-        autoescape=False,  # noqa: S701 - plain-text prompts, not HTML
+        autoescape=False,  # noqa: S701
         undefined=StrictUndefined,
         trim_blocks=True,
         lstrip_blocks=True,
