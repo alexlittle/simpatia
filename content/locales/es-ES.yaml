@@ -1,0 +1,15 @@
+# content/locales/es-ES.yaml
+language_name: "español (de España)"
+max_sentences: 2
+max_sentences_open: 4
+max_words: 55          # en-GB: 45
+lid_threshold: 0.90
+address_default: usted
+banned_jargon:
+  - disnea
+  - cefalea
+  - astenia
+  - epigastrio
+  - ictericia
+  - anorexia
+  - emesis

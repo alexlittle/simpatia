@@ -1,0 +1,9 @@
+# content/cases/cholecystitis-01/meta.yaml
+id: cholecystitis-01
+presenting_complaint: abdominal pain
+age: 54
+sex: F
+difficulty: 2
+available_locales:
+  - en-GB
+  - es-ES

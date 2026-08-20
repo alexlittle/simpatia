@@ -1,0 +1,60 @@
+# content/cases/cholecystitis-01/es-ES.yaml
+lang: es-ES
+
+opening_line: "Llevo desde anoche con un dolor aquí, y no se me va."
+
+hpi:
+  site: "aquí arriba, en el costado derecho, justo debajo de las costillas"
+  onset: "me empezó de golpe, como una hora después de cenar anoche"
+  character: "es como si me agarrara y me apretara — va y viene por oleadas"
+  radiation: "se me va hacia la espalda, aquí a la paletilla derecha"
+  associated:
+    - "me entraron náuseas y devolví dos veces por la noche"
+    - "desde entonces no me entra nada de comida"
+  timing: "lo más fuerte me dura como una hora, luego afloja un poco y vuelve"
+  exacerbating: "fue a peor después de comer, y me duele al coger aire hondo"
+  relieving: "quedarme muy quieta ayuda algo, el paracetamol no me hizo nada"
+  severity: "en lo peor, un ocho sobre diez — no encontraba postura en la cama"
+
+background:
+  past_medical:
+    - "la tensión alta, llevo con pastillas unos seis años"
+    - "el azúcar un poco alto, el año pasado me dijeron que vigilara la dieta"
+  medications:
+    - "una para la tensión, una pastilla blanca pequeña, no me acuerdo del nombre"
+  allergies:
+    - "que yo sepa, ninguna"
+  family:
+    - "mi madre tuvo cáncer de colon, con 68 años"
+  social:
+    - "maestra de primaria"
+    - "una copa de vino casi todas las noches, y quizá dos el fin de semana"
+    - "no he fumado nunca"
+
+ice:
+  ideas: "pensé que sería algo que comí — pedimos comida a domicilio"
+  concerns: "mi madre tuvo cáncer de colon y no se me quita de la cabeza"
+  expectations: "solo quiero algo que me quite el dolor de verdad"
+
+volunteered_freely:
+  - "el dolor y dónde lo tiene"
+  - "que devolvió por la noche"
+
+if_asked_only:
+  - "ha tenido dos episodios parecidos pero más suaves en los últimos meses, los dos después de comidas grasientas, y se le pasaron por la mañana"
+  - "esta mañana la orina le ha salido más oscura"
+  - "la preocupación por el cáncer de su madre"
+  - "ha cogido unos siete kilos en los últimos dos años"
+
+denies:
+  - "fiebre o escalofríos"
+  - "cambios en el ritmo intestinal"
+  - "sangre en las heces"
+  - "pérdida de peso"
+  - "dolor en el pecho o falta de aire"
+  - "escozor al orinar"
+
+does_not_know:
+  - "el nombre de su pastilla para la tensión"
+  - "si se le han puesto amarillos la piel o los ojos"
+  - "antecedentes familiares más allá de sus padres"

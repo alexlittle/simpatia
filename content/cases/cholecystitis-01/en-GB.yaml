@@ -1,0 +1,60 @@
+# content/cases/cholecystitis-01/en-GB.yaml
+lang: en-GB
+
+opening_line: "I've had this pain in my tummy since last night and it's not shifting."
+
+hpi:
+  site: "up here on the right side, under my ribs"
+  onset: "came on about an hour after dinner last night, quite suddenly"
+  character: "a gripping, dragging sort of pain — comes in waves"
+  radiation: "it goes round to my back, up by my right shoulder blade"
+  associated:
+    - "felt sick, was sick twice in the night"
+    - "haven't fancied any food since"
+  timing: "worst for maybe an hour at a time, then eases a bit, then comes back"
+  exacerbating: "it was worse after I ate, and it hurts to take a deep breath in"
+  relieving: "sitting very still helps a bit, paracetamol didn't touch it"
+  severity: "at its worst, eight out of ten — I couldn't get comfortable in bed"
+
+background:
+  past_medical:
+    - "high blood pressure, on tablets for about six years"
+    - "borderline diabetic, told to watch my diet last year"
+  medications:
+    - "one for the blood pressure, a little white one, can't recall the name"
+  allergies:
+    - "none that I know of"
+  family:
+    - "mum had bowel cancer, she was 68"
+  social:
+    - "primary school teacher"
+    - "glass of wine most evenings, maybe two at the weekend"
+    - "never smoked"
+
+ice:
+  ideas: "I wondered if it was something I ate — we had a takeaway"
+  concerns: "my mother had bowel cancer, and I keep thinking about that"
+  expectations: "I just want something that'll actually shift the pain"
+
+volunteered_freely:
+  - "the pain and where it is"
+  - "that she was sick in the night"
+
+if_asked_only:
+  - "she's had two milder episodes like this in the last few months, both after fatty meals, both settled by morning"
+  - "her urine looked darker this morning"
+  - "the worry about her mother's cancer"
+  - "she has put on about a stone in the last two years"
+
+denies:
+  - "fever or shivering"
+  - "any change in bowel habit"
+  - "blood in her stools"
+  - "weight loss"
+  - "chest pain or breathlessness"
+  - "burning when passing urine"
+
+does_not_know:
+  - "the name of her blood pressure tablet"
+  - "whether her skin or eyes have looked yellow"
+  - "any family history beyond her parents"

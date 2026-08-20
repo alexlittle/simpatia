@@ -1,0 +1,14 @@
+# content/locales/en-GB.yaml
+language_name: "English"
+max_sentences: 2
+max_sentences_open: 4
+max_words: 45
+lid_threshold: 0.90
+address_default: ""
+banned_jargon:
+  - dyspnoea
+  - epigastric
+  - jaundice
+  - radiating
+  - nausea
+  - malaise
