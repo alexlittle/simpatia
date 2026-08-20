@@ -42,7 +42,7 @@ jobs:
         run: echo "v=$(uv run python -c 'import simpatia; print(simpatia.__version__)')" >> "$GITHUB_OUTPUT"
 
       - name: SonarCloud
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@v6
         with:
           args: -Dsonar.projectVersion=${{ steps.ver.outputs.v }}
         env:
