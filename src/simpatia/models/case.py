@@ -19,6 +19,7 @@ class CaseMeta(BaseModel):
     age: int = Field(ge=0, le=120)
     sex: str
     difficulty: int = Field(ge=1, le=5)
+    duration_minutes: int = Field(default=10, ge=1, le=30)
     available_locales: list[str] = Field(min_length=1)
 
 

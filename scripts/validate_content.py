@@ -3,12 +3,12 @@ import sys
 
 from pydantic import ValidationError
 
-from simpatia.config import settings
+from simpatia.config import get_settings
 from simpatia.content.loader import load_case_meta, load_locale, load_patient_case
 
 errors = []
 
-for meta_path in sorted((settings.content_dir / "cases").glob("*/meta.yaml")):
+for meta_path in sorted((get_settings().content_dir / "cases").glob("*/meta.yaml")):
     case_id = meta_path.parent.name
     try:
         meta = load_case_meta(case_id)
@@ -23,7 +23,7 @@ for meta_path in sorted((settings.content_dir / "cases").glob("*/meta.yaml")):
         except (ValidationError, FileNotFoundError) as e:
             errors.append(f"{case_id}/{locale}.yaml — {e}")
 
-for path in sorted((settings.content_dir / "locales").glob("*.yaml")):
+for path in sorted((get_settings().content_dir / "locales").glob("*.yaml")):
     try:
         load_locale(path.stem)
         print(f"  ok  locale {path.stem}")

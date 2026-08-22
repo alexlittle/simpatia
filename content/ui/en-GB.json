@@ -1,0 +1,13 @@
+{
+  "role.doctor": "DOCTOR",
+  "role.patient": "PATIENT",
+  "repl.commands_hint": "/help for commands",
+  "repl.ended": "Consultation ended after {turns} turns.",
+  "repl.unknown_command": "unknown command: {cmd} (try /help)",
+  "repl.words": "{n} words",
+  "repl.turn": "turn {n}",
+  "cmd.end": "end the consultation",
+  "cmd.prompt": "print the rendered system prompt",
+  "cmd.turns": "show turn count",
+  "cmd.help": "show this help"
+}

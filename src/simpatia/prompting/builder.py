@@ -2,9 +2,10 @@ from functools import cache
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
-from simpatia.config import settings
-from simpatia.content.loader import load_case_meta, load_patient_case
+from simpatia.config import get_settings
+from simpatia.content.loader import load_case_meta, load_locale, load_patient_case
 from simpatia.models.case import CaseMeta, PatientCase
+from simpatia.models.locale import LocaleConfig
 
 LANGUAGE_NAMES = {"en-GB": "English", "es-ES": "Spanish (Peninsular)"}
 
@@ -19,7 +20,7 @@ def _env() -> Environment:
     and MUST have autoescape enabled.
     """
     return Environment(
-        loader=FileSystemLoader(settings.content_dir / "prompts"),
+        loader=FileSystemLoader(get_settings().content_dir / "prompts"),
         autoescape=False,  # noqa: S701
         undefined=StrictUndefined,
         trim_blocks=True,
@@ -32,17 +33,16 @@ def render_patient_system(
     case: PatientCase,
     meta: CaseMeta,
     locale: str,
-    max_sentences: int = 2,
-    max_sentences_open: int = 4,
+    loc: LocaleConfig,
 ) -> str:
     template = _env().get_template(f"{locale}/patient_system.jinja")
     return template.render(
         case=case,
         meta=meta,
         background=case.background.model_dump(),
-        language_name=LANGUAGE_NAMES[locale],
-        max_sentences=max_sentences,
-        max_sentences_open=max_sentences_open,
+        language_name=loc.language_name,
+        max_sentences=loc.max_sentences,
+        max_sentences_open=loc.max_sentences_open,
     )
 
 
@@ -52,4 +52,5 @@ def build_for(case_id: str, locale: str) -> str:
         case=load_patient_case(case_id, locale),
         meta=load_case_meta(case_id),
         locale=locale,
+        loc=load_locale(locale),
     )
