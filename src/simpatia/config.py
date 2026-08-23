@@ -52,9 +52,7 @@ class Settings(BaseSettings):
     @model_validator(mode="after")
     def _check_examiner_determinism(self) -> "Settings":
         if self.examiner.temperature > 0.0:
-            raise ValueError(
-                "examiner.temperature must be 0.0 — marking has to be reproducible"
-            )
+            raise ValueError("examiner.temperature must be 0.0 — marking has to be reproducible")
         return self
 
 

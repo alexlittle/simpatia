@@ -13,8 +13,8 @@ from simpatia.patient.session import Session
 from simpatia.i18n import t
 
 
-
 COMMANDS = ["end", "prompt", "turns", "help"]
+
 
 def _help(locale: str) -> str:
     lines = [f"  /{c:<8} {t(f'cmd.{c}', locale)}" for c in COMMANDS]
@@ -42,7 +42,9 @@ async def main(case_id: str, locale: str) -> None:
     doctor = t("role.doctor", locale)
     patient = t("role.patient", locale)
 
-    print(f"\n  [{get_settings().patient.model} | {case_id} | {locale} | {t('repl.commands_hint', locale)}]")
+    print(
+        f"\n  [{get_settings().patient.model} | {case_id} | {locale} | {t('repl.commands_hint', locale)}]"
+    )
     print(f"\n  {patient}: {session.opening_line}\n")
 
     while True:
@@ -60,8 +62,10 @@ async def main(case_id: str, locale: str) -> None:
 
         reply = await session.ask(entry)
         print(f"\n  {patient}: {reply}")
-        print(f"  [{t('repl.words', locale, n=len(reply.split()))}, "
-              f"{t('repl.turn', locale, n=session.turn_count)}]\n")
+        print(
+            f"  [{t('repl.words', locale, n=len(reply.split()))}, "
+            f"{t('repl.turn', locale, n=session.turn_count)}]\n"
+        )
 
     print(f"\n  {t('repl.ended', locale, turns=session.turn_count)}\n")
 

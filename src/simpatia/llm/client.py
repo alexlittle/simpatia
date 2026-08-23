@@ -40,9 +40,7 @@ class OpenAICompatClient:
         }
 
     async def complete(self, system: str, messages: list[Message]) -> str:
-        response = await self._client.chat.completions.create(
-            **self._payload(system, messages)
-        )
+        response = await self._client.chat.completions.create(**self._payload(system, messages))
         return response.choices[0].message.content or ""
 
     async def stream(self, system: str, messages: list[Message]) -> AsyncIterator[str]:
