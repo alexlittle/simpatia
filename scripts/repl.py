@@ -9,9 +9,8 @@ import asyncio
 import sys
 
 from simpatia.config import get_settings
-from simpatia.patient.session import Session
 from simpatia.i18n import t
-
+from simpatia.patient.session import Session
 
 COMMANDS = ["end", "prompt", "turns", "help"]
 
@@ -42,9 +41,10 @@ async def main(case_id: str, locale: str) -> None:
     doctor = t("role.doctor", locale)
     patient = t("role.patient", locale)
 
-    print(
-        f"\n  [{get_settings().patient.model} | {case_id} | {locale} | {t('repl.commands_hint', locale)}]"
-    )
+    model = get_settings().patient.model
+    hint = t("repl.commands_hint", locale)
+    print(f"\n  [{model} | {case_id} | {locale} | {hint}]")
+
     print(f"\n  {patient}: {session.opening_line}\n")
 
     while True:
