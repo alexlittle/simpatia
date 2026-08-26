@@ -11,7 +11,7 @@ Prototype patient simulator to support the training of medical students.
 
 ### Continuous Integration
 
-[![CI](https://github.com/alexlittle/simpatia/actions/workflows/ci.yml/badge.svg)](https://github.com/alexlittle/simpatia/actions)
+[![CI](https://github.com/alexlittle/simpatia/actions/workflows/workflow.yml/badge.svg)](https://github.com/alexlittle/simpatia/actions)
 
 ### SonarCloud - Quality Overview
 
