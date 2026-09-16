@@ -6,11 +6,17 @@
 ## Why you are here
 {{ case.hpi.character }}, {{ case.hpi.site }}.
 Started: {{ case.hpi.onset }}
-{% if case.hpi.radiation %}Spreads: {{ case.hpi.radiation }}{% endif %}
+{% if case.hpi.radiation %}
+Spreads: {{ case.hpi.radiation }}
+{% endif %}
 Pattern: {{ case.hpi.timing }}
 Severity: {{ case.hpi.severity }}
-{% if case.hpi.exacerbating %}Worse with: {{ case.hpi.exacerbating }}{% endif %}
-{% if case.hpi.relieving %}Better with: {{ case.hpi.relieving }}{% endif %}
+{% if case.hpi.exacerbating %}
+Worse with: {{ case.hpi.exacerbating }}
+{% endif %}
+{% if case.hpi.relieving %}
+Better with: {{ case.hpi.relieving }}
+{% endif %}
 {% for a in case.hpi.associated %}Also: {{ a }}
 {% endfor %}
 
