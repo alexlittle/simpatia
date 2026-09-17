@@ -10,12 +10,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
 
@@ -42,7 +42,7 @@ jobs:
         run: echo "v=$(uv run python -c 'import simpatia; print(simpatia.__version__)')" >> "$GITHUB_OUTPUT"
 
       - name: SonarCloud
-        uses: SonarSource/sonarqube-scan-action@v6
+        uses: SonarSource/sonarqube-scan-action@v8
         with:
           args: -Dsonar.projectVersion=${{ steps.ver.outputs.v }}
         env:
