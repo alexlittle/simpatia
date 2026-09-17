@@ -52,6 +52,38 @@ class OpenAICompatClient:
                 yield delta
 
 
+class AnthropicClient:
+    """Anthropic Messages API.
+
+    No `seed` support — determinism for the examiner relies on temperature=0
+    alone (enforced in config.py).
+    """
+
+    def __init__(self, config: LLMConfig) -> None:
+        from anthropic import AsyncAnthropic  # lazy: anthropic is an optional extra
+
+        self.config = config
+        self._client = AsyncAnthropic(api_key=config.api_key.get_secret_value())
+
+    def _kwargs(self, system: str, messages: list[Message]) -> dict:
+        return {
+            "model": self.config.model,
+            "max_tokens": self.config.max_tokens,
+            "temperature": self.config.temperature,
+            "system": system,
+            "messages": messages,
+        }
+
+    async def complete(self, system: str, messages: list[Message]) -> str:
+        response = await self._client.messages.create(**self._kwargs(system, messages))
+        return "".join(block.text for block in response.content if block.type == "text")
+
+    async def stream(self, system: str, messages: list[Message]) -> AsyncIterator[str]:
+        async with self._client.messages.stream(**self._kwargs(system, messages)) as stream:
+            async for text in stream.text_stream:
+                yield text
+
+
 def build_client(config: LLMConfig) -> LLMClient:
     """Construct a client for an arbitrary config — no global state.
 
@@ -59,6 +91,8 @@ def build_client(config: LLMConfig) -> LLMClient:
     """
     if config.backend == "openai_compat":
         return OpenAICompatClient(config)
+    if config.backend == "anthropic":
+        return AnthropicClient(config)
     raise NotImplementedError(f"backend {config.backend!r} not yet implemented")
 
 
