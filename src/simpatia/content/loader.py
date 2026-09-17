@@ -1,5 +1,6 @@
 # src/simpatia/content/loader.py
 from pathlib import Path
+from typing import Any
 
 import yaml
 
@@ -8,10 +9,11 @@ from simpatia.models.case import CaseMeta, PatientCase
 from simpatia.models.locale import LocaleConfig
 
 
-def _read_yaml(path: Path) -> dict:
+def _read_yaml(path: Path) -> dict[str, Any]:
     if not path.exists():
         raise FileNotFoundError(f"No content file at {path}")
-    return yaml.safe_load(path.read_text(encoding="utf-8"))
+    data: dict[str, Any] = yaml.safe_load(path.read_text(encoding="utf-8"))
+    return data
 
 
 def load_case_meta(case_id: str) -> CaseMeta:

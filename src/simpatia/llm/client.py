@@ -6,8 +6,9 @@ LM Studio, OpenRouter and OpenAI by changing the config's base_url.
 
 from collections.abc import AsyncIterator
 from functools import lru_cache
-from typing import Literal, Protocol
+from typing import Any, Literal, Protocol
 
+from anthropic import AsyncAnthropic
 from openai import AsyncOpenAI
 
 from simpatia.config import LLMConfig, get_settings
@@ -30,7 +31,7 @@ class OpenAICompatClient:
             api_key=config.api_key.get_secret_value(),
         )
 
-    def _payload(self, system: str, messages: list[Message]) -> dict:
+    def _payload(self, system: str, messages: list[Message]) -> dict[str, Any]:
         return {
             "model": self.config.model,
             "messages": [{"role": "system", "content": system}, *messages],
@@ -60,12 +61,10 @@ class AnthropicClient:
     """
 
     def __init__(self, config: LLMConfig) -> None:
-        from anthropic import AsyncAnthropic  # lazy: anthropic is an optional extra
-
         self.config = config
         self._client = AsyncAnthropic(api_key=config.api_key.get_secret_value())
 
-    def _kwargs(self, system: str, messages: list[Message]) -> dict:
+    def _kwargs(self, system: str, messages: list[Message]) -> dict[str, Any]:
         return {
             "model": self.config.model,
             "max_tokens": self.config.max_tokens,

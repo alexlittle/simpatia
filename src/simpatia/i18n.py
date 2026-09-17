@@ -11,7 +11,8 @@ def _strings(locale: str) -> dict[str, str]:
     path = get_settings().content_dir / "ui" / f"{locale}.json"
     if not path.exists():
         path = get_settings().content_dir / "ui" / f"{get_settings().default_locale}.json"
-    return json.loads(path.read_text(encoding="utf-8"))
+    data: dict[str, str] = json.loads(path.read_text(encoding="utf-8"))
+    return data
 
 
 def t(key: str, locale: str, **kwargs: object) -> str:
