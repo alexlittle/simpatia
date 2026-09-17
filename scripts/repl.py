@@ -50,7 +50,7 @@ async def main(case_id: str, locale: str) -> None:
     while True:
         try:
             entry = input(f"  {doctor}: ").strip()
-        except (EOFError, KeyboardInterrupt):
+        except EOFError, KeyboardInterrupt:
             print()
             break
         if not entry:
