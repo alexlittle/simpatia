@@ -8,11 +8,11 @@ authors = [
 ]
 requires-python = ">=3.14"
 dependencies = [
-    "pydantic>=2.9",
+    "pydantic>=2.13.5",
     "pydantic-settings>=2.5",
     "pyyaml>=6.0",
     "jinja2>=3.1",
-    "openai>=1.54",              # OpenAI-compatible: Ollama, vLLM, OpenRouter, OpenAI
+    "openai>=3.13.0",              # OpenAI-compatible: Ollama, vLLM, OpenRouter, OpenAI
     "lingua-language-detector>=2.0",
 ]
 
@@ -21,9 +21,9 @@ anthropic = ["anthropic>=0.40"]  # only if you go cloud
 api = [
     "fastapi>=0.115.3",
     "uvicorn[standard]>=0.32",
-    "sqlmodel>=0.0.22",
+    "sqlmodel>=0.0.42",
 ]
-examiner = ["pydantic-ai>=0.0.20"]
+examiner = ["pydantic-ai>=2.43.0"]
 
 [project.scripts]
 simpatia = "simpatia.cli:app"
@@ -38,7 +38,7 @@ dev = [
     "pytest-asyncio>=0.24",
     "ruff>=0.16.8",
     "mypy>=1.13",
-    "typer>=0.15",
+    "typer>=0.27.2",
     "httpx>=0.27",
     "pytest-cov>=7.1.0"
 ]

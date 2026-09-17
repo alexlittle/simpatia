@@ -20,7 +20,7 @@ class Session:
     messages: list[Message] = field(default_factory=list)
 
     @classmethod
-    def start(cls, case_id: str, locale: str) -> "Session":
+    def start(cls, case_id: str, locale: str) -> Session:
         case = load_patient_case(case_id, locale)
         return cls(
             case_id=case_id,
